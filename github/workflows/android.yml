@@ -2,7 +2,7 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main", "dev-android" ] # 监听主分支和 dev 分支
+    branches: [ "main", "dev-android" ]
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        # 直接清理并全量打包
         run: ./gradlew clean assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK
